@@ -1,3 +1,7 @@
+![Development Status](https://img.shields.io/badge/Status-In%20Development-green)
+
+
+
 **Khas Nusantara** 🌿
 
 Selamat datang di Khas Nusantara!
