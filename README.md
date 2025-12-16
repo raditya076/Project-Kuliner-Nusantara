@@ -15,6 +15,7 @@ Mempromosikan keberagaman kuliner Nusantara agar lebih dikenal oleh masyarakat l
 Menjadi media pembelajaran bagi pelajar, pencinta kuliner, dan masyarakat umum.
 
 ✨ Fitur Utama
+
 🍽️ 1. Daftar Makanan Khas Daerah
 
 Menampilkan berbagai hidangan tradisional dari setiap provinsi di Indonesia, disusun secara rapi dan mudah dieksplorasi.
