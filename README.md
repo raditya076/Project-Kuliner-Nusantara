@@ -14,6 +14,8 @@ Menemukan makanan favorit melalui pencarian cepat.
 Menikmati tampilan yang khas Nusantara, dengan warna dan motif yang menonjolkan budaya Indonesia.
 
 
+
+
 **Fitur Utama** ✨
 
 Daftar Makanan Khas Daerah – dari Aceh sampai Papua, semua ada.
@@ -23,6 +25,8 @@ Detail Resep – lengkap dengan bahan dan langkah memasak.
 Pencarian & Filter – gampang cari makanan berdasarkan nama atau provinsi.
 
 Gambar Hidangan – supaya kamu bisa langsung lihat seperti apa makanannya.
+
+
 
 
 **Teknologi yang Digunakan**🛠️
