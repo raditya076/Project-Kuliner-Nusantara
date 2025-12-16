@@ -1,14 +1,15 @@
 <?php
+session_start();
 require 'config.php';
 
-// untuk pastikan ada parameter id
+// pastikan ada id
 if (!isset($_GET['id'])) {
     die("ID makanan tidak ditemukan.");
 }
 
 $food_id = intval($_GET['id']);
 
-// untuk Query detail makanan
+// Query detail makanan
 $query = "
     SELECT foods.*, provinces.name AS province_name
     FROM foods
@@ -21,101 +22,210 @@ $data = mysqli_fetch_assoc($result);
 
 // Jika tidak ada data
 if (!$data) {
-    die("Data makanan tidak ditemukan di database.");
+    die("Data makanan tidak ditemukan.");
 }
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title><?= $data['name']; ?> - Detail Makanan Khas</title>
+    <link rel="icon" type="image/png" href="logo/logo KN.png">
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: #f1f1f1;
-            padding: 40px;
+            font-family: 'roboto', sans-serif;
+            margin: 0;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #8a0000, #300000);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            color: white;
         }
+
+        /* ===== CARD GLASS ===== */
         .container {
-            width: 800px;
-            margin: auto;
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 85%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 35px;
+            border-radius: 25px;
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+            animation: fadeIn 0.9s ease;
         }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         h1 {
             text-align: center;
+            font-size: 28px;
+            margin-bottom: 5px;
+            margin-top: 5px;
         }
+
+        .province {
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* ===== IMAGE BOX ===== */
         .image-box {
             text-align: center;
-            margin-bottom: 20px;
+            margin: 25px 0;
         }
+
         .image-box img {
-            width: 350px;
-            height: auto;
-            border-radius: 10px;
+            width: 370px;
+            max-width: 90%;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
         }
+
+        /* ===== DETAIL SECTION ===== */
         .section {
             margin: 20px 0;
         }
+
         .section h3 {
-            margin-bottom: 8px;
-            color: #333;
+            margin-bottom: 10px;
+            font-size: 20px;
+            border-left: 4px solid #ffaaaa;
+            padding-left: 10px;
         }
-        a.back {
-            display: inline-block;
-            margin-top: 20px;
-            background: #333;
+
+        .section p {
+            font-size: 16px;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+
+        /*BUTTON GROUP*/
+        .button-row {
+            margin-top: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Tombol */
+        .btn {
+            padding: 12px 22px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: .2s ease;
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.25);
             color: white;
-            padding: 10px 18px;
-            border-radius: 8px;
-            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.35);
         }
-        a.back:hover {
-            background: #555;
+
+        .btn-back:hover {
+            background: rgba(6, 6, 6, 0.35);
+        }
+
+        .btn-fav {
+            background: #ff0000ff;
+            color: white;
+            border: none;
+        }
+
+        .btn-fav:hover {
+            background: #7e0c0cff;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width: 768px) {
+            .container {
+                padding: 25px;
+                width: 90%;
+            }
+
+            .button-row {
+
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+                
+            }
         }
     </style>
 </head>
+
 <body>
+
     <div class="container">
-            <h1><?= $data['name']; ?></h1>
-            <p style="text-align:center; font-size: 14px;">
-            Asal Provinsi: <strong><?= $data['province_name']; ?></strong>
-            </p>
+
+        <h1><?= $data['name']; ?></h1>
+
         <div class="image-box">
             <?php if (!empty($data['image'])): ?>
                 <img src="foods/images/<?= $data['image']; ?>" alt="<?= $data['name']; ?>">
             <?php else: ?>
-                <img src="no-image.png" alt="No Image">
+                <img src="no-image.png" alt="Tidak ada gambar">
             <?php endif; ?>
         </div>
+
+        <p class="province">Asal Provinsi: <strong><?= $data['province_name']; ?></strong></p>
+        <hr>
         <div class="section">
             <h3>Deskripsi</h3>
-            <p><?= nl2br($data['description']); ?></p>
+            <p><?= $data['description']; ?></p>
         </div>
+
         <div class="section">
             <h3>Bahan-bahan</h3>
-            <p><?= nl2br($data['ingredients']); ?></p>
+            <p><?= $data['ingredients']; ?></p>
         </div>
+
         <div class="section">
             <h3>Resep / Cara Memasak</h3>
-            <p><?= nl2br($data['recipe']); ?></p>
+            <p><?= $data['recipe']; ?></p>
         </div>
-        <a href="javascript:history.back()" class="back">Kembali</a>
-    </div>
-<?php session_start(); ?>
-<?php if (isset($_SESSION['user_id'])): ?>
-    <form action="favorite_add.php" method="POST">
-        <input type="hidden" name="food_id" value="<?= $data['id']; ?>">
-        <button type="submit" style="padding:10px 20px; border:none; background:#ff3b3b; color:white; border-radius:6px; cursor:pointer;">
-            Tambahkan ke Favorit
-        </button>
-    </form>
-<?php else: ?>
-    <p><a href="login.php">Login</a> untuk menambahkan ke favorit.</p>
-<?php endif; ?>
 
+
+        <div class="button-row">
+            <a href="javascript:history.back()">
+                <button class="btn btn-back">Kembali</button>
+            </a>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <form action="favorite_add.php" method="POST" style="margin:0;">
+                    <input type="hidden" name="food_id" value="<?= $data['id']; ?>">
+                    <button type="submit" class="btn btn-fav">Tambah Favorit</button>
+                </form>
+            <?php else: ?>
+                <a href="login.php">
+                    <button class="btn btn-fav">Login untuk Favorit</button>
+                </a>
+            <?php endif; ?>
+        </div>
+    </div>
 </body>
+
 </html>
