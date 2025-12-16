@@ -1,55 +1,34 @@
-Khas Nusantara – Eksplorasi Kuliner Indonesia
+Khas Nusantara 🌿
 
-Selamat datang di Khas Nusantara, sebuah platform yang dibuat untuk memperkenalkan kekayaan kuliner Indonesia dari Sabang sampai Merauke. Website ini dirancang untuk membantu pengguna mengenal berbagai makanan khas daerah, lengkap dengan deskripsi, bahan, dan resep pembuatannya.
+Selamat datang di Khas Nusantara!
+Website ini dibuat untuk memperkenalkan kekayaan kuliner Indonesia dari Sabang sampai Merauke. Di sini, kamu bisa menemukan makanan khas tiap daerah, lengkap dengan resepnya, sehingga bisa dicoba sendiri di rumah. Semua ini dikemas dengan desain bernuansa Nusantara yang hangat dan identik dengan Indonesia.
 
-Dengan tampilan yang identik dengan nuansa budaya Nusantara, platform ini bertujuan menjaga dan mempopulerkan kuliner tradisional Indonesia dalam bentuk digital yang modern.
+Apa yang bisa kamu lakukan di Khas Nusantara?
 
-🎯 Tujuan Utama
+Menjelajahi makanan khas dari berbagai provinsi di Indonesia.
 
-Memudahkan pengguna mencari makanan khas daerah di Indonesia.
+Melihat deskripsi, bahan, dan resep dari setiap hidangan.
 
-Menampilkan informasi lengkap setiap makanan, mulai dari deskripsi, bahan-bahan, hingga langkah pembuatan.
+Menemukan makanan favorit melalui pencarian cepat.
 
-Mempromosikan keberagaman kuliner Nusantara agar lebih dikenal oleh masyarakat luas.
+Menikmati tampilan yang khas Nusantara, dengan warna dan motif yang menonjolkan budaya Indonesia.
 
-Menjadi media pembelajaran bagi pelajar, pencinta kuliner, dan masyarakat umum.
+Fitur Utama ✨
 
-✨ Fitur Utama
+Daftar Makanan Khas Daerah – dari Aceh sampai Papua, semua ada.
 
-🍽️ 1. Daftar Makanan Khas Daerah
+Detail Resep – lengkap dengan bahan dan langkah memasak.
 
-Menampilkan berbagai hidangan tradisional dari setiap provinsi di Indonesia, disusun secara rapi dan mudah dieksplorasi.
+Pencarian & Filter – gampang cari makanan berdasarkan nama atau provinsi.
 
-📜 2. Detail Makanan (Deskripsi, Bahan, dan Resep)
+Gambar Hidangan – supaya kamu bisa langsung lihat seperti apa makanannya.
 
-Pengguna dapat melihat:
-
-Deskripsi singkat makanan
-
-Daftar bahan untuk memasak
-
-Langkah-langkah resep secara lengkap
-
-🔍 3. Pencarian Makanan
-
-Fitur pencarian cepat untuk menemukan makanan berdasarkan nama atau daerah asal.
-
-🗺️ 4. Makanan Berdasarkan Provinsi
-
-Pengguna bisa memilih provinsi, kemudian melihat makanan khas yang berasal dari wilayah tersebut.
-
-📸 5. Gambar Hidangan
-
-Setiap makanan dilengkapi dengan gambar representatif yang menambah daya tarik visual.
-
-🎨 6. Desain Nuansa Nusantara
-
-Menggunakan warna, motif, dan atmosfer yang merepresentasikan ciri khas budaya Indonesia.
-
-🛠️ Teknologi yang Digunakan
+Teknologi yang Digunakan 🛠️
 
 Frontend: HTML, CSS, JavaScript
 
 Backend: PHP Native
 
 Database: MySQL
+
+Struktur database sederhana tapi cukup fleksibel untuk menambah data makanan baru kapan saja.
