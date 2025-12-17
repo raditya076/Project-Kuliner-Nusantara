@@ -17,78 +17,6 @@ $result = mysqli_query($conn, $sql);
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <style>
-        /*musik*/
-        .audio-player {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(106, 7, 7, 0.74);
-            backdrop-filter: blur(8px);
-            border-radius: 15px;
-            padding: 15px 20px 10px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .audio-player:hover {
-            background: rgba(255, 0, 0, 1);
-            transform: scale(1.07);
-        }
-
-        /* logo musik */
-        .music-logo {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 8px;
-            transition: transform 1s linear;
-        }
-
-        /* animasi berputar saat lagu diputar */
-        .playing {
-            animation: spin 3s linear infinite;
-        }
-
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* tombol play/pause */
-        #playPauseBtn {
-            background: white;
-            border: none;
-            color: #333;
-            font-size: 18px;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        #playPauseBtn:hover {
-            background: #3b0606;
-            color: #ffffff;
-        }
-
-        /* sembunyikan kontrol default */
-        audio {
-            display: none;
-        }
-
-        nav ul li a.active2 {
-            border-bottom: 2px solid #ffffff43;
-        }
-
         /* GRID 3 KOLOM */
         .grid {
             display: grid;
@@ -239,14 +167,6 @@ $result = mysqli_query($conn, $sql);
             </div>
         <?php endwhile; ?>
     </div>
-    <div class="audio-player" id="audioPlayer">
-        <img src="logo/musik.png" alt="music icon" class="music-logo" id="musicLogo">
-        <button id="playPauseBtn">▶</button>
-        <audio id="bgAudio" loop>
-            <source src="logo/Lagu nasional tanah airku instrumental.mp3" type="audio/mpeg">
-            Browser kamu tidak mendukung audio.
-        </audio>
-    </div>
     <?php include 'partials/footer.php'; ?>
 </body>
 <script>
@@ -259,30 +179,7 @@ $result = mysqli_query($conn, $sql);
             header.classList.remove("scrolled");
         }
     });
-    const audio = document.getElementById("bgAudio");
-    const playPauseBtn = document.getElementById("playPauseBtn");
-    const musicLogo = document.getElementById("musicLogo");
 
-    window.addEventListener("load", () => {
-        audio.play().then(() => {
-            playPauseBtn.textContent = "⏸";
-            musicLogo.classList.add("playing");
-        }).catch(() => {
-            console.log("Autoplay diblokir. Klik tombol untuk mulai.");
-        });
-    });
-
-    playPauseBtn.addEventListener("click", () => {
-        if (audio.paused) {
-            audio.play();
-            playPauseBtn.textContent = "⏸";
-            musicLogo.classList.add("playing");
-        } else {
-            audio.pause();
-            playPauseBtn.textContent = "▶";
-            musicLogo.classList.remove("playing");
-        }
-    });
 </script>
 
 </html>
