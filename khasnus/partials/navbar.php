@@ -5,166 +5,164 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 
 <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+        background: linear-gradient(135deg, #8a0000, #3a0000, #8a0000);
+        background-size: 300% 300%;
+        animation: bgMove 12s ease infinite;
+        padding-top: 90px;
+    }
+
+    @keyframes bgMove {
+        0% {
+            background-position: 0% 50%;
         }
 
-        body {
-            font-family: 'Open Sans', sans-serif;
-            color: white;
-            background: linear-gradient(135deg, #8a0000, #3a0000, #8a0000);
-            background-size: 300% 300%;
-            animation: bgMove 12s ease infinite;
-            padding-top: 90px;
+        50% {
+            background-position: 100% 50%;
         }
 
-        @keyframes bgMove {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
+        100% {
+            background-position: 0% 50%;
         }
+    }
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            /* padding: 12px 30px; */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        /* padding: 12px 30px; */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-            background: transparent;
-            backdrop-filter: none;
-            border-bottom: none;
+        background: transparent;
+        backdrop-filter: none;
+        border-bottom: none;
 
-            z-index: 1000;
-            transition: all 0.4s ease;
-        }
+        z-index: 1000;
+        transition: all 0.4s ease;
+    }
 
-        header.scrolled {
-            background: rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-        }
-        
-        header img {
-            width: 160px;
-        }
+    header.scrolled {
+        background: rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    }
 
-        nav {
-            display: flex;
-            gap: 35px;
-        }
+    header img {
+        width: 160px;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 35px;
-            margin-right: 15px;
-        }
+    nav {
+        display: flex;
+        gap: 35px;
+    }
 
-        nav ul li {
-            position: relative;
-            font-family: 'open sans' sans-serif;
-            font-size: 14px;
-        }
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 35px;
+        margin-right: 15px;
+    }
 
-        nav ul li:last-child a {
-            color: black;
-            font-weight: bold;
-            padding: 3px 6px;
-            border-radius: 3px;
-            font-size: 12px;
-            background: wheat;
-            box-shadow: 1px 1px 1px #000;
-        }
+    nav ul li {
+        position: relative;
+        font-family: 'open sans' sans-serif;
+        font-size: 14px;
+    }
 
-        nav a {
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            position: relative;
-        }
+    nav ul li:last-child a {
+        color: black;
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 3px;
+        font-size: 12px;
+        background: wheat;
+        box-shadow: 1px 1px 1px #000;
+    }
 
-        nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -3px;
-            width: 0%;
-            height: 2px;
-            background: #ffd700;
-            transition: 0.4s;
-        }
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        position: relative;
+    }
 
-        nav a:hover::after {
-            width: 100%;
-        }
+    nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 0%;
+        height: 2px;
+        background: #ffd700;
+        transition: 0.4s;
+    }
 
-        nav ul li a.active {
-            border-bottom: 2px solid #ffffff43;
-        }
+    nav a:hover::after {
+        width: 100%;
+    }
 
-        /* hamburger menu */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            height: 20px;
-            justify-content: space-between;
-            position: relative;
-        }
 
-        .menu-toggle input {
-            position: absolute;
-            width: 40px;
-            height: 28px;
-            left: -5px;
-            top: -3px;
-            cursor: pointer;
-            opacity: 0;
-            z-index: 1;
-        }
+    /* hamburger menu */
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        height: 20px;
+        justify-content: space-between;
+        position: relative;
+    }
 
-        .menu-toggle span {
-            display: block;
-            width: 28px;
-            height: 3px;
-            background-color: #ffffffff;
-            border-radius: 3px;
-            transition: all 0.4s;
-        }
+    .menu-toggle input {
+        position: absolute;
+        width: 40px;
+        height: 28px;
+        left: -5px;
+        top: -3px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 1;
+    }
 
-        .menu-toggle span:nth-child(2) {
-            transform-origin: 0 0;
-        }
+    .menu-toggle span {
+        display: block;
+        width: 28px;
+        height: 3px;
+        background-color: #ffffffff;
+        border-radius: 3px;
+        transition: all 0.4s;
+    }
 
-        .menu-toggle span:nth-child(4) {
-            transform-origin: 0 100%;
-        }
+    .menu-toggle span:nth-child(2) {
+        transform-origin: 0 0;
+    }
 
-        .menu-toggle input:checked~span:nth-child(2) {
-            transform: rotate(45deg) translate(-2px, 1px);
-        }
+    .menu-toggle span:nth-child(4) {
+        transform-origin: 0 100%;
+    }
 
-        .menu-toggle input:checked~span:nth-child(4) {
-            transform: rotate(-45deg) translate(-2px, 0);
-        }
+    .menu-toggle input:checked~span:nth-child(2) {
+        transform: rotate(45deg) translate(-2px, 1px);
+    }
 
-        .menu-toggle input:checked~span:nth-child(3) {
-            transform: scale(0);
-            opacity: 0;
-        }
+    .menu-toggle input:checked~span:nth-child(4) {
+        transform: rotate(-45deg) translate(-2px, 0);
+    }
+
+    .menu-toggle input:checked~span:nth-child(3) {
+        transform: scale(0);
+        opacity: 0;
+    }
+
     /*= MOBILE =*/
     @media (max-width: 576px) {
         header img {
@@ -225,10 +223,10 @@ if (session_status() === PHP_SESSION_NONE) {
     </a>
     <nav>
         <ul>
-            <li><a href="index.php">Beranda</a></li>
-            <li><a href="provinsi.php">Daftar Provinsi</a></li>
-            <li><a href="favorit.php">Favorit</a></li>
-            <li><a href="tentang.php">Tentang</a></li>
+            <li><a href="index.php" class="active1">Beranda</a></li>
+            <li><a href="provinsi.php" class="active2">Daftar Provinsi</a></li>
+            <li><a href="favorit.php" class="active3">Favorit</a></li>
+            <li><a href="tentang.php" class="active4">Tentang</a></li>
 
             <?php if (isset($_SESSION['user_id'])): ?>
                 <li><a href="logout.php">Log out</a></li>
@@ -253,5 +251,4 @@ if (session_status() === PHP_SESSION_NONE) {
     menutoggle.addEventListener('click', function() {
         nav.classList.toggle('slide');
     });
-    
 </script>

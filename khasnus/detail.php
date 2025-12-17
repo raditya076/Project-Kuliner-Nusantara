@@ -172,7 +172,7 @@ if (!$data) {
 
             .btn {
                 width: 100%;
-                
+
             }
         }
     </style>

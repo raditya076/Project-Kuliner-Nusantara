@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
+            font-family: "Roboto", sans-serif;
         }
 
         body {
@@ -65,103 +65,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-        /* 3D floating circles */
-        body::before,
-        body::after {
-            content: "";
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            filter: blur(90px);
-            opacity: 0.5;
-            z-index: 0;
-            animation: float 6s infinite alternate ease-in-out;
-        }
-
-        body::before {
-            background: #ff4d4d;
-            top: 50px;
-            left: 50px;
-        }
-
-        body::after {
-            background: #800000;
-            bottom: 50px;
-            right: 50px;
-        }
-
-        @keyframes float {
-            from {
-                transform: translateY(0px);
-            }
-
-            to {
-                transform: translateY(35px);
-            }
-        }
-
-        /* Card blur (glassmorphism) */
+        /* EFEK CARD GLASSMORPHISM */
         .card {
-            width: 350px;
+            width: 380px;
             padding: 35px;
-            background: rgba(255, 255, 255, 0.12);
+            border-radius: 20px;
             backdrop-filter: blur(15px);
-            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
-            color: white;
-            position: relative;
-            z-index: 2;
-            animation: fadeIn 0.5s ease-out;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1s forwards;
         }
 
-        @keyframes fadeIn {
-            from {
+        /* ANIMASI CARD MASUK */
+        @keyframes fadeInUp {
+            0% {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(40px);
             }
 
-            to {
+            100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
         h2 {
+            color: #fff;
             margin-bottom: 20px;
-            text-align: center;
-            font-size: 26px;
             font-weight: 700;
+            letter-spacing: .5px;
+        }
+
+        .alert {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: bold;
         }
 
         input {
             width: 100%;
             padding: 12px;
-            margin: 10px 0 18px;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            backdrop-filter: blur(5px);
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
             outline: none;
             font-size: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            letter-spacing: .3px;
+            backdrop-filter: blur(4px);
+            transition: 0.3s;
         }
 
         input::placeholder {
-            color: #eeeeee;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        input:focus {
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
         }
 
         button {
             width: 100%;
             padding: 12px;
-            background: #d61515ff;
-            border: none;
             border-radius: 10px;
-            color: white;
-            font-weight: bold;
+            border: none;
+            margin-top: 10px;
             cursor: pointer;
-            transition: 0.25s ease;
+            background: #d61515ff;
+            color: #ffffffff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
         button:hover {
@@ -170,23 +152,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         a {
-            color: #ffdddd;
-            text-decoration: none;
-            display: block;
             margin-top: 15px;
+            display: block;
+            color: #fff;
             font-size: 14px;
-            text-align: center;
+            text-decoration: none;
         }
 
         a:hover {
             text-decoration: underline;
-        }
-
-        /* Message */
-        .alert {
-            text-align: center;
-            font-size: 14px;
-            margin-bottom: 10px;
         }
     </style>
 </head>

@@ -147,24 +147,30 @@ $result = mysqli_query($conn, $sql);
             text-align: center;
             margin-top: 50px;
         }
-        main{
+
+        main {
             margin-bottom: 5px;
         }
+
         @media (max-width: 576px) {
-            main{
+            main {
                 margin-bottom: 230px;
             }
-            .result-header{
+
+            .result-header {
                 margin-bottom: 10px;
             }
+
             .result-header h2 {
                 margin-top: 10px;
             }
-            .result-header .btn-back{
+
+            .result-header .btn-back {
                 margin-top: 10px;
                 margin-left: 5px;
 
             }
+
             .cards-container {
                 margin-top: 10px;
                 grid-template-columns: 1fr;

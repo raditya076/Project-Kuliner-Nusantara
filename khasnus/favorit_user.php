@@ -23,13 +23,21 @@ $result = mysqli_query($conn, $sql);
     <link rel="icon" type="image/png" href="logo/logo KN.png">
 
     <style>
-        /* ====FAVORIT CONTENT ===*/
+        nav ul li a.active3 {
+            border-bottom: 2px solid #ffffff43;
+        }
+
+        /*favorit*/
         h1 {
             text-align: center;
             font-family: 'Montserrat', sans-serif;
             margin-bottom: 50px;
             margin-top: 30px;
             font-size: 36px;
+        }
+
+        main {
+            margin-bottom: 360px;
         }
 
         .grid {
@@ -96,26 +104,31 @@ $result = mysqli_query($conn, $sql);
         }
 
         /* MOBILE */
-        @media(max-width:576px) {}
+        @media(max-width:576px) {
+            main {
+                margin-bottom: 490px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <?php include 'partials/navbar.php'; ?>
     <h1>Favorit Saya</h1>
-
-    <div class="grid">
-        <?php while ($row = mysqli_fetch_assoc($result)): ?>
-            <div class="card">
-                <img src="foods/images/<?= $row['image'] ?: 'no-image.png'; ?>">
-                <div class="card-body">
-                    <h3><?= htmlspecialchars($row['name']); ?></h3>
-                    <a href="detail.php?id=<?= $row['id']; ?>" class="btn btn-detail">Detail</a>
-                    <a href="favorite_delete.php?id=<?= $row['fav_id']; ?>" class="btn btn-remove">Hapus</a>
+    <main>
+        <div class="grid">
+            <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                <div class="card">
+                    <img src="foods/images/<?= $row['image'] ?: 'no-image.png'; ?>">
+                    <div class="card-body">
+                        <h3><?= htmlspecialchars($row['name']); ?></h3>
+                        <a href="detail.php?id=<?= $row['id']; ?>" class="btn btn-detail">Detail</a>
+                        <a href="favorite_delete.php?id=<?= $row['fav_id']; ?>" class="btn btn-remove">Hapus</a>
+                    </div>
                 </div>
-            </div>
-        <?php endwhile; ?>
-    </div>
+            <?php endwhile; ?>
+        </div>
+    </main>
     <?php include 'partials/footer.php'; ?>
 </body>
 <script>

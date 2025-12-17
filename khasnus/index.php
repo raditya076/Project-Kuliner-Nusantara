@@ -99,6 +99,56 @@ session_start();
             border-bottom: 2px solid #ffffff43;
         }
 
+        /* hamburger menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            height: 20px;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .menu-toggle input {
+            position: absolute;
+            width: 40px;
+            height: 28px;
+            left: -5px;
+            top: -3px;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: #ffffffff;
+            border-radius: 3px;
+            transition: all 0.4s;
+        }
+
+        .menu-toggle span:nth-child(2) {
+            transform-origin: 0 0;
+        }
+
+        .menu-toggle span:nth-child(4) {
+            transform-origin: 0 100%;
+        }
+
+        .menu-toggle input:checked~span:nth-child(2) {
+            transform: rotate(45deg) translate(-2px, 1px);
+        }
+
+        .menu-toggle input:checked~span:nth-child(4) {
+            transform: rotate(-45deg) translate(-2px, 0);
+        }
+
+        .menu-toggle input:checked~span:nth-child(3) {
+            transform: scale(0);
+            opacity: 0;
+        }
+
         .hero {
             position: relative;
             height: 100vh;
@@ -193,56 +243,6 @@ session_start();
         .search-box button:hover {
             background: wheat;
             color: #000;
-        }
-
-        /* hamburger menu */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            height: 20px;
-            justify-content: space-between;
-            position: relative;
-        }
-
-        .menu-toggle input {
-            position: absolute;
-            width: 40px;
-            height: 28px;
-            left: -5px;
-            top: -3px;
-            cursor: pointer;
-            opacity: 0;
-            z-index: 1;
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 28px;
-            height: 3px;
-            background-color: #ffffffff;
-            border-radius: 3px;
-            transition: all 0.4s;
-        }
-
-        .menu-toggle span:nth-child(2) {
-            transform-origin: 0 0;
-        }
-
-        .menu-toggle span:nth-child(4) {
-            transform-origin: 0 100%;
-        }
-
-        .menu-toggle input:checked~span:nth-child(2) {
-            transform: rotate(45deg) translate(-2px, 1px);
-        }
-
-        .menu-toggle input:checked~span:nth-child(4) {
-            transform: rotate(-45deg) translate(-2px, 0);
-        }
-
-        .menu-toggle input:checked~span:nth-child(3) {
-            transform: scale(0);
-            opacity: 0;
         }
 
         /* hp */
@@ -376,7 +376,7 @@ session_start();
         <div class="overlay"></div>
         <div class="content">
             <h1>Khas Nusantara</h1>
-            <!-- Form pencarian nyata yang terhubung ke database -->
+            <!-- form pencarian nyata yang terhubung ke database -->
             <form action="result.php" method="GET">
                 <div class="search-box">
                     <input type="text" class="search" name="keyword" placeholder="Cari makanan / provinsi..." required>

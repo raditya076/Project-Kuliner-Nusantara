@@ -14,7 +14,10 @@ session_start();
     <title>Tentang kita</title>
 
     <style>
-        /* ===== MAIN CARD ===== */
+        nav ul li a.active4 {
+            border-bottom: 2px solid #ffffff43;
+        }
+
         .card {
             width: 90%;
             max-width: 1000px;
@@ -33,7 +36,7 @@ session_start();
 
             opacity: 0;
             transform: translateY(60px);
-            transition: 0.8s ease;
+            transition: 1s ease;
         }
 
         .card.show {
@@ -57,7 +60,7 @@ session_start();
         }
 
 
-        /* ===== ABOUT SECTION ===== */
+        /*ABOUT SECTION */
         .about-section {
             width: 80%;
             max-width: 900px;
@@ -148,6 +151,7 @@ session_start();
             flex-direction: column;
             align-items: center;
             background-color: wheat;
+            /* background-color: rgba(0, 0, 0, 0.39); */
             border-radius: 20px;
             padding-top: 5px;
             padding-left: 7px;
@@ -251,7 +255,7 @@ session_start();
                         <a href="https://www.instagram.com/fadlyyy_15/" target="_blank">
                             <img src="logo/ig..png" alt="IG">
                         </a>
-                        <a href="https://github.com/fadly" target="_blank">
+                        <a href="https://github.com/raditya076" target="_blank">
                             <img src="logo/github.png" alt="GitHub">
                         </a>
                         <a href="https://www.linkedin.com/in/fadly-92024738a/" target="_blank">
@@ -275,7 +279,7 @@ session_start();
                 <div class="team-left">
                     <img src="tim/alisa.jpeg" alt="alisa">
                     <div class="team-social">
-                        <a href="https://instagram.com/alisa" target="_blank">
+                        <a href="https://www.instagram.com/andialisarthy/" target="_blank">
                             <img src="logo/ig..png" alt="IG">
                         </a>
                         <a href="https://github.com/alisa" target="_blank">
@@ -319,6 +323,31 @@ session_start();
                     <p><b>Peran:</b> Frontend Dev / FE</p>
                     <p class="desc">
                         Bertanggung jawab dalam merancang dan mengimplementasikan tampilan antarmuka website.
+                    </p>
+                </div>
+            </div>
+            <!-- 4 -->
+            <div class="team-row">
+                <div class="team-left">
+                    <img src="tim/" alt="kaizp">
+                    <div class="team-social">
+                        <a href="https://instagram.com/faiz" target="_blank">
+                            <img src="logo/ig..png" alt="IG">
+                        </a>
+                        <a href="https://github.com/faiz" target="_blank">
+                            <img src="logo/github.png" alt="GitHub">
+                        </a>
+                        <a href="https://www.linkedin.com/in/faiz-92024738a/" target="_blank">
+                            <img src="logo/lkin.png" alt="LinkedIn">
+                        </a>
+                    </div>
+                </div>
+                <div class="team-info">
+                    <h3>Andi Faiz Trinanda</h3>
+                    <p><b>NIM:</b> 60200124062</p>
+                    <p><b>Peran:</b>Riset Data</p>
+                    <p class="desc">
+                        Bertanggung jawab dalam melakukan pencarian, pengumpulan, dan verifikasi data untuk kebutuhan database.
                     </p>
                 </div>
             </div>

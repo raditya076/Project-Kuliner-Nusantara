@@ -12,6 +12,10 @@
     <link rel="icon" type="image/png" href="logo/logo KN.png">
 
     <style>
+        nav ul li a.active3 {
+            border-bottom: 2px solid #ffffff43;
+        }
+
         /* nav ul{
             margin-right: 15px;
         } */
@@ -56,6 +60,7 @@
             opacity: .9;
             line-height: 1.6;
             margin-bottom: 28px;
+            font-family: 'Montserrat' sans-serif;
         }
 
         .btn-login {
@@ -76,7 +81,7 @@
 
 
         @media(max-width:576px) {
-            main{
+            main {
                 margin-bottom: 165px;
             }
         }
